@@ -10,10 +10,6 @@ public class MusicRunner
   
   public static void main (String[] args)
   {
-     Scanner scan = new Scanner(System.in);
-   System.out.println( "Enter a number 0-9:");
-    int input = scan.nextInt();
-    Sytem.out.println(songs[input].artist);
     int count = 0;
     MusicReader mr = new MusicReader();
     MusicLibrary playlist = new MusicLibrary();
@@ -70,10 +66,14 @@ public class MusicRunner
     for (int i = playlist.size()-1; i >= 0; i--)
     {
        Song song = playlist.getSong(i);
-       System.out.println("Artist: " + song.artist + ", Name: " + song.name + ", Year: " + song.year + ", Score: " + song.score + ", Notes: " + song.notes );
+       //System.out.println("Artist: " + song.artist + ", Name: " + song.name + ", Year: " + song.year + ", Score: " + song.score + ", Notes: " + song.notes );
+        
     }   
     
-    
+     Scanner scan = new Scanner(System.in);
+   System.out.println( "Enter a number 0-9:");
+    int input = scan.nextInt();
+    System.out.println(playlist.getSong(input).notes);    
     
   }
 }

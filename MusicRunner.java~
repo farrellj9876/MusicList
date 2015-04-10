@@ -10,9 +10,13 @@ public class MusicRunner
   
   public static void main (String[] args)
   {
+     Scanner scan = new Scanner(System.in);
+   System.out.println( "Enter a number 0-9:");
+    int input = scan.nextInt();
+    Sytem.out.println(songs[input].artist);
     int count = 0;
     MusicReader mr = new MusicReader();
-    ArrayList<Song> songs = new ArrayList<Song>();
+    MusicLibrary playlist = new MusicLibrary();
     
     mr.open("musiclist.csv");
     
@@ -50,18 +54,10 @@ public class MusicRunner
      String type = clean(data[2]);
      if(type.equals("song"))
      {
-       songs.add(song);
+       playlist.addSong(song);
        count++;
      }
      
-     System.out.println(song.artist);
-     System.out.println(song.name);
-     System.out.println(song.year);
-     System.out.println(song.score);
-     System.out.println(song.notes);
-     
-      
-      
       if (count == 10)  // For now only read ONE song
         break;
       
@@ -69,5 +65,15 @@ public class MusicRunner
     }
     
     mr.close();
+    playlist.Sort();
+    
+    for (int i = playlist.size()-1; i >= 0; i--)
+    {
+       Song song = playlist.getSong(i);
+       System.out.println("Artist: " + song.artist + ", Name: " + song.name + ", Year: " + song.year + ", Score: " + song.score + ", Notes: " + song.notes );
+    }   
+    
+    
+    
   }
 }

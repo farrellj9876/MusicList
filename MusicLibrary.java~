@@ -9,6 +9,11 @@ public class MusicLibrary {
     /* YOUR CONSTRUCTOR CODE HERE*/
     this.songs = new ArrayList<Song>();
   }
+  
+  public int size()
+  {
+    return songs.size(); 
+  }
     
   /* 
    * Add song to songs ArrayList
@@ -27,15 +32,14 @@ public class MusicLibrary {
     return songs.get(num);
   }
   
+
+  
   /*
    * Sort song list by title
    */
   public void Sort ()
   {
-    if( songs.get(num).equals(a))
-         return addSong(songs.get(num));
-    if(  songs.get(num).equals(b))
-         song[1] = songs.get(num);
+    Collections.sort(songs);
       
   }
   
